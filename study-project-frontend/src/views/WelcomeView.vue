@@ -1,0 +1,32 @@
+<script setup>
+
+</script>
+
+<template>
+  <div style="width: 100vw;height: 100vh;overflow: hidden;display: flex">
+    <div style="flex: 1">
+      <el-image style="width: 100%;height: 100%;" fit="cover"
+                src="https://img2.baidu.com/it/u=3042417417,2978117813&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500"/>
+    </div>
+    <div class="welcome-title">
+      <div style="font-size: 30px;font-weight: bold">欢迎来到我们的学习网站</div>
+      <div style="margin-top: 10px">在这里你可以学习如何使用Java，如何搭建网站，并且与Java之父密切交流。</div>
+      <div style="margin-top: 10px">在这里你可以同性交友，因为都是男的，没有学Java的女生。</div>
+    </div>
+
+    <div style="width: 400px;background-color: white">
+      <router-view/>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+.welcome-title {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  color: white;
+  text-shadow: 0 0 10px black;
+
+}
+</style>
