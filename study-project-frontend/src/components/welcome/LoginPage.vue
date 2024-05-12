@@ -40,9 +40,10 @@
 import {User, Lock} from '@element-plus/icons-vue'
 import {reactive} from "vue";
 import {ElMessage} from "element-plus";
-import {post} from "@/net/index.js";
+import {get, post} from "@/net/index.js";
 import router from "@/router/index.js";
-
+import {useStore} from "@/stores/index.js";
+const store = useStore()
 const form = reactive({
   username: '',
   password: '',
@@ -59,7 +60,12 @@ const login = () => {
       remember: form.remember
     }, (message) => {
       ElMessage.success(message)
-      router.push('/index')
+      get('api/user/me', (message) => {
+        store.auth.user = message
+        router.push('/index')
+      }, () => {
+        store.auth.user = null
+      })
     })
   }
 }
